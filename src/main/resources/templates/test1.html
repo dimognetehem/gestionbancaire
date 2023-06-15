@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un employé</title>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+
+</head>
+<body>
+<form class="row g-3 needs-validation" novalidate
+      method="post"
+      role="form"
+      th:action="@{/saveE}"
+      th:object="${employe}">
+
+
+    <div class="col-12">
+        <label for="idEmp" class="form-label">Id</label>
+        <div class="input-group has-validation">
+            <input type="number" th:field="*{idEmp}" name="email" class="form-control" id="idEmp" placeholder="Entrez l'Id" required>
+            <div class="invalid-feedback">Entrez l'Id.</div>
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="yourEmail" class="form-label">Email</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <input type="email" th:field="*{emailEmp}"  name="email" class="form-control" id="yourEmail" placeholder="Entrez votre email" required>
+            <div class="invalid-feedback">Entrez votre email.</div>
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="nom" class="form-label">Nom</label>
+        <div class="input-group has-validation">
+
+            <input type="text" th:field="*{nomEmp}" name="email" class="form-control" id="nom" placeholder="Entrez votre nom" required>
+            <div class="invalid-feedback">Entrez votre nom.</div>
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="prenom" class="form-label">Prenom</label>
+        <div class="input-group has-validation">
+
+            <input type="text" th:field="*{prenomEmp}" name="email" class="form-control" id="prenom" placeholder="Entrez votre prenom" >
+            <div class="invalid-feedback">Entrez votre prenom.</div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label for="yourPassword" class="form-label">Mot de passe</label>
+        <input type="password" th:field="*{password}" name="password" class="form-control" id="yourPassword" placeholder="Entrez votre mot de passe" required>
+        <div class="invalid-feedback">Entrez votre mot de passe.</div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <label for="role" class="form-label">Role</label>
+        <div class="input-group has-validation">
+            <select name="role" th:field="*{roles}" id="role" required>
+                <option value="Caissiere">Caissière</option>
+                <option value="ChefGuichet">Chef de Guichet</option>
+                <option value="GestionnaireCompte">Gestionnaire de Compte</option>
+                <option value="ChefAgence">Chef d'Agence</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100" >Enregistrer</button>
+    </div>
+</form>
+</body>
+</html>

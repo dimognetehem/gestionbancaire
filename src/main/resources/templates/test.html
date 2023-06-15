@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Client</title>
+  <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="row container-fluid">
+<div class="card col-md-8 col-sm-12 p-5 mt-5 shadow-lg mx-auto">
+  <div class="alert alert-primary text-center text-uppercase fw-bold">
+    Liste des Employés
+  </div>
+  <table class="table table-borderless datatable" style="width: 100%">
+    <thead class="text-black">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employes : ${ListeEmployes}">
+      <th scope="row" th:text="${employes.idEmp}"></th>
+      <td th:text="${employes.nomEmp}"></td>
+      <td th:text="${employes.prenomEmp}"></td>
+      <td th:text="${employes.emailEmp}"></td>
+      <td th:text="${employes.isActiveEmp()}"></td>
+      <td th:text="${employes.roles}"></td>
+      <td>
+        <a class="btn-primary btn btn-sm">Modifier<i class="fas fa-user-edit ml-2"></i>
+        </a>
+        <a th:href="@{'/delE/' + ${employes.idEmp}}" class="btn-danger btn btn-sm">Supprimer<i class="fas fa-user-times ml-2"></i>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+</body>
+</html>
